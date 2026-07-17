@@ -67,6 +67,8 @@ class OpenWBGT :
 	#    asks the user for start and stop dates
 
 	def input(self) :
+		
+    print("in input")
 
 		#-jm inputString = "begin of WBGT data : (" + self.startTime.strftime("%d-%b-%Y %H:%M") + ") > "
 		#-jmanswer = input(inputString)
