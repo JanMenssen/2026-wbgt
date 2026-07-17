@@ -10,7 +10,7 @@ import requests
 import csv
 import os
 
-class OpenJan :
+class wbgt : 
 
 	# init
 	#
