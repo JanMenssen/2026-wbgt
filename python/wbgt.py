@@ -34,7 +34,7 @@ class wbgt :
 		
 		tz = timezone(timedelta(hours=2))
 		self.startTime = datetime.now(tz) - timedelta(hours = 6)
-		self.endTime = datetime.now()
+		self.endTime = datetime.now(tz)
 
 	# input
 	#
