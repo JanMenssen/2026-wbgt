@@ -5,11 +5,9 @@
 # modifications 
 #		- 2024-06-10  JM   initial version
 
-from datetime import datetime,timedelta, timezone
-import requests
-import csv
-import os
-
+from datetime import datetime, timedelta, timezone
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 from python.opendata import OpenDataAPI
 
 class OpenWBGT : 
@@ -102,14 +100,74 @@ class OpenWBGT :
     #
     #		plots the data in the wbgtTable
 
-    def plot(self) :
-        
-      print("in plot")
-  
+    def plot(self, pltAreas = True) :
+
+     	# get the x and y data 
+		
+      time = [row["time"] for row in self.wbgtTable]
+      wbgt = [row["wbgt"] for row in self.wbgtTable]
+
+      fig, ax = plt.subplots()
+      fig.set_facecolor("white")
+
+      if len(time) < 50 :
+        ax.plot(time,wbgt,"*",markersize=6,color="blue")
+        ax.plot(time,wbgt,linewidth=1,color="blue")
+      else :
+        ax.plot(time,wbgt,linewidth=1.5,color="blue")
+
+      ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
+      ax.xaxis.set_major_locator(mdates.HourLocator(interval=1))
+      ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
+
+      ax.set_ylim(16, 34)
+      ax.set_xlabel("Time", fontweight="bold")
+      ax.set_ylabel("WBGT (°C)", fontweight="bold")
+      ax.set_title("WBGT at " + self.locationName + " (" + time[-1].strftime("%d-%b-%Y") +")",fontweight="bold")
+
+		  # box around plot
+
+      for spine in ax.spines.values() :
+        spine.set_visible(True)	
+
+  	  # if plotAreas is set shaded areas are plotted
+	
+      if pltAreas :
+
+			# shaded areas
+
+        ax.axhspan(32.15, 34, facecolor="red", alpha=0.7)
+        ax.axhspan(30.05, 32.15, facecolor="red", alpha=0.5)
+        ax.axhspan(27.85, 30.05, facecolor="red", alpha=0.3)
+        ax.axhspan(25.65, 27.85, facecolor=(0.95, 0.6, 0), alpha=0.45)
+        ax.axhspan(22.25, 25.65, facecolor=(0.9, 0.9, 0), alpha=0.25)
+        ax.axhspan(18.4, 22.25, facecolor=(0.9, 0.9, 0), alpha=0.15)
+
+        # border lines
+
+        ax.axhline(32.15, color='k', lw=0.5)	
+        ax.axhline(30.03, color='k', lw=0.5)	
+        ax.axhline(27.85, color='k', lw=0.5)	
+        ax.axhline(25.65, color='k', lw=0.5)	
+        ax.axhline(22.25, color='k', lw=0.5)	
+        ax.axhline(18.4, color='k', lw=0.5)	
+
+		  # and show
+
+      plt.show()
+
   	# list
     #
     #		lists the data in the wbgtTable	
 
     def list(self) :
         
-      print("in list")  
+      print(f"{'Time':<20} {'WBGT':>8} {'HeatIndex':>10}")
+      print("-" * 40)
+
+      for row in self.wbgtTable :
+        print(
+          f"{row['time'].strftime('%d-%m-%Y %H:%M'):<20} "
+          f"{row['wbgt']:>8.1f} "
+          f"{row['heatIndex']:>5.0f}"
+        )
