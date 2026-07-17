@@ -10,7 +10,7 @@
 #-jm import matplotlib.dates as mdates
 #-jm from python.opendata import OpenDataAPI
 
-class wbgt :
+class testJan :
 
 	# init
 	#
