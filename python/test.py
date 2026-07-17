@@ -46,8 +46,6 @@ class OpenWBGT :
 
     def input(self) :
         
-      print("in input") 
-
       inputString = "begin of WBGT data : (" + self.startTime.strftime("%d-%b-%Y %H:%M") + ") > "
       answer = input(inputString)
       if answer != "" :
@@ -64,8 +62,6 @@ class OpenWBGT :
 
     def setLocation(self, location) :
             
-      print(" in seocation")    
-
       if location.upper() == "GILZE-RIJEN" :
         self.locationCode = "06350"
         self.locationName = location
@@ -78,8 +74,29 @@ class OpenWBGT :
     #		at the end the wbgtTable is filled
 
     def readData(self) :
-        
-      print("in readData")  
+         
+      files = self.api.list_files(self.startTime, self.endTime)
+      nrItems = len(files);
+      print("%d files received ..." % nrItems)
+
+      modFactor = 1
+      if nrItems > 10 :
+        modFactor = 10
+      if nrItems > 100 :
+        modFactor = 50
+
+      self.wbgtTable = []
+      for item,i in zip(files,range(1,nrItems+1)) :
+
+        [time,wbgt,heatIndx] = self.api.getWBGTdata(item["filename"],self.locationCode)
+        self.wbgtTable.append({"time" : time, "wbgt" : wbgt, "heatIndex" : heatIndx})
+
+			  # show process (not for all files)
+	
+        if ((i % modFactor) == 0) or (i==nrItems) :
+          print("%d (of %d) files processed ..." % (i,nrItems))
+
+      self.wbgtTable = sorted(self.wbgtTable, key=lambda x: x["time"])
 
     # plot
     #
