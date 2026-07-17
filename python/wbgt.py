@@ -108,7 +108,7 @@ class wbgt :
 		#-jm		f"{row['time'].strftime('%d-%m-%Y %H:%M'):<20} "
 		#-jm		f"{row['wbgt']:>8.1f} "
 		#-jm 		f"{row['heatIndex']:>5.0f}"
-			)
+		#-jm	)
 	
 	# plot
 	#
