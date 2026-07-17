@@ -62,6 +62,23 @@ class OpenWBGT :
 
 			return files
 		
+    	# input
+	#
+	#    asks the user for start and stop dates
+
+	def input(self) :
+
+		#-jm inputString = "begin of WBGT data : (" + self.startTime.strftime("%d-%b-%Y %H:%M") + ") > "
+		#-jmanswer = input(inputString)
+		#-jmif answer != "" :
+		#-jm		self.startTime = datetime.strptime(answer, "%d-%b-%Y %H:%M")
+
+		#-jminputString = "end of WBGT data : (" + self.endTime.strftime("%d-%b-%Y %H:%M") + ") > "
+		#-jmanswer = input(inputString)
+		#-jmif answer != "" :
+		#-jm	self.endTime = datetime.strptime(answer, "%d-%b-%Y %H:%M")
+
+
 		# getWBGTdata
 		#
 		#			returns the time, wbgtvalue and heatindex from the given file
