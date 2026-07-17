@@ -48,13 +48,27 @@ class OpenWBGT :
         
       print("in input") 
 
+      inputString = "begin of WBGT data : (" + self.startTime.strftime("%d-%b-%Y %H:%M") + ") > "
+      answer = input(inputString)
+      if answer != "" :
+        self.startTime = datetime.strptime(answer, "%d-%b-%Y %H:%M")
+
+      inputString = "end of WBGT data : (" + self.endTime.strftime("%d-%b-%Y %H:%M") + ") > "
+      answer = input(inputString)
+      if answer != "" :
+        self.endTime = datetime.strptime(answer, "%d-%b-%Y %H:%M")
+
     # setLocation
 	  #
 	  #		sets the location for which the data should be retrieved	
 
-    def setLocation(self) :
+    def setLocation(self, location) :
             
       print(" in seocation")    
+
+      if location.upper() == "GILZE-RIJEN" :
+        self.locationCode = "06350"
+        self.locationName = location
 
     # readData
     #
