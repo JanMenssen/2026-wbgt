@@ -5,7 +5,7 @@
 # mdofications
 #   16-jul-2026  JM  initial version 
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from python.opendata import OpenDataAPI
@@ -32,7 +32,8 @@ class wbgt :
 
 		# sets the default start and stop date
 		
-		self.startTime = datetime.now() - timedelta(hours = 6)
+		tz = timezone(timedelta(hours=2))
+		self.startTime = datetime.now(tz) - timedelta(hours = 6)
 		self.endTime = datetime.now()
 
 	# input
