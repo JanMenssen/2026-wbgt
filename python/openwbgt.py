@@ -75,6 +75,7 @@ class OpenWBGT :
          
       files = self.api.list_files(self.startTime, self.endTime)
       nrItems = len(files);
+      print()
       print("%d files received ..." % nrItems)
 
       modFactor = 1
@@ -93,7 +94,7 @@ class OpenWBGT :
 	
         if ((i % modFactor) == 0) or (i==nrItems) :
           print("%d (of %d) files processed ..." % (i,nrItems))
-
+    
       self.wbgtTable = sorted(self.wbgtTable, key=lambda x: x["time"])
 
     # plot
