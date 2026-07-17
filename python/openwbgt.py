@@ -152,8 +152,9 @@ class OpenWBGT :
         ax.axhline(22.25, color='k', lw=0.5)	
         ax.axhline(18.4, color='k', lw=0.5)	
 
-		  # and show
+		  # and show (make some space around it)
 
+      print();
       plt.show()
 
   	# list
