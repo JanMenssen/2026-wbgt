@@ -10,7 +10,7 @@ import requests
 import csv
 import os
 
-class wbgt : 
+class OpenWBGT : 
 
 	# init
 	#
