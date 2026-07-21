@@ -44,7 +44,7 @@ class OpenWBGT :
 	  #   asks the user for start and stop dates
 
     def input(self) :
-        
+    
       inputString = "begin of WBGT data : (" + self.startTime.strftime("%d-%b-%Y %H:%M") + ") > "
       answer = input(inputString)
       if answer != "" :
@@ -60,7 +60,7 @@ class OpenWBGT :
 	  #		sets the location for which the data should be retrieved	
 
     def setLocation(self, location) :
-            
+     
       if location.upper() == "GILZE-RIJEN" :
         self.locationCode = "06350"
         self.locationName = location
@@ -73,7 +73,7 @@ class OpenWBGT :
     #		at the end the wbgtTable is filled
 
     def readData(self) :
-         
+       
       files = self.api.list_files(self.startTime, self.endTime)
       nrItems = len(files);
       print()
