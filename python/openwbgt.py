@@ -6,8 +6,11 @@
 #		- 2024-06-10  JM   initial version
 
 from datetime import datetime, timedelta, timezone
+from fileinput import filename
+from wsgiref import headers
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+import csv
 from python.opendata import OpenDataAPI
 
 class OpenWBGT : 
@@ -171,3 +174,25 @@ class OpenWBGT :
           f"{row['wbgt']:>8.1f} "
           f"{row['heatIndex']:>5.0f}"
         )
+
+    # write
+    #
+    #    writes the data in the wbgtTable to a CSV file 
+
+    def write(self, filename) :
+
+      # create the headeers from the keys
+    
+      headers = list(self.wbgtTable[0].keys())
+
+      # and write
+      
+      with open(filename, "w", newline="", encoding="utf-8") as f :
+
+        print("in writer")
+
+        writer = csv.writer(f)
+        writer.writerow(headers) 
+        
+        for row in self.wbgtTable :
+          writer.writerow(row.values())
