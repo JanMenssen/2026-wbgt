@@ -118,8 +118,8 @@ class OpenWBGT :
       else :
         ax.plot(time,wbgt,linewidth=1.5,color="blue")
 
-      ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
       ax.xaxis.set_major_locator(mdates.HourLocator(interval=1))
+      ax.xaxis.set_major_locator(mdates.AutoDateLocator(maxticks=10))
       ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
 
       ax.set_ylim(16, 34)
@@ -188,8 +188,6 @@ class OpenWBGT :
       # and write
       
       with open(filename, "w", newline="", encoding="utf-8") as f :
-
-        print("in writer")
 
         writer = csv.writer(f)
         writer.writerow(headers) 
