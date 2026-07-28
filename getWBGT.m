@@ -18,7 +18,7 @@ function getWBGT
   myWBGT = myWBGT.input();
   myWBGT = myWBGT.readData();
   myWBGT = myWBGT.plot(true);
-  myWBGT = myWBGT.list()
+  myWBGT = myWBGT.list();
 
 
 
