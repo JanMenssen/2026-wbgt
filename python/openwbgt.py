@@ -208,7 +208,7 @@ class OpenWBGT :
       ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
 
       ax.set_ylim(16, 34)
-      ax.set_xlabel("Time", fontweight="bold")
+      ax.set_xlabel("time", fontweight="bold")
       ax.set_ylabel("WBGT (°C)", fontweight="bold")
       ax.set_yticks([16, 18, 20, 22, 24, 26, 28, 30, 32, 34])
 
