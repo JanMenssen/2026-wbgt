@@ -5,6 +5,7 @@
 %
 % modifications
 %   16-jul-2026   JM    initial version
+%   28-jul-2026   JM    locations added, 2nd yaxis added
 
 classdef wbgt < handle
 
@@ -235,10 +236,25 @@ classdef wbgt < handle
         plot(obj.wbgtData.time,obj.wbgtData.wbgt,'LineWidth',1.5,'Color',[0 0 1]);  
       end
 
-      set(gca,'Box','on','YLim',[16 34])
+      set(gca,'Box','on')
 
       xlabel('Time',FontWeight='Bold');
+      
+      yyaxis left
+      ylim([16 34]);
       ylabel('WBGT (^oC)',FontWeight='Bold');
+      yticks([16 18 20 22 24 26 28 30 32 34]);
+
+      yyaxis right
+      ylim([16 34])
+      ax = gca;
+      ax.YColor = [0 0 0];
+
+      ylim([16 34]);
+      ylabel('hittekracht',FontWeight='Bold',Color=[0 0 0]);
+      yticks([16 18 20 22 24 26 28 30 32]);
+      yticklabels({'2','3','4','5','6','7','8','9','10'})
+
       title(sprintf("WBGT at %s",obj.locationName),FontWeight='Bold')
 
       % plot the shaded areas, See slide Hein Daanen
