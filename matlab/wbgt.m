@@ -68,9 +68,114 @@ classdef wbgt < handle
 
     function obj = setLocation(obj,location)
 
-      if strcmpi(location,"Gilze-Rijen")
+      if strcmpi(location,"Voorschoten")
+        obj.locationCode = 6215;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"De Kooy Airport")
+        obj.locationCode = 6235;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Schiphol Airport")
+        obj.locationCode = 6240;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Hoorn Terschellingt")
+        obj.locationCode = 6251;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"De Bilt")
+        obj.locationCode = 6260;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Lelystad Airport")
+        obj.locationCode = 6269;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Leeuwarden Airport")
+        obj.locationCode = 6270;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Deelen Airport")
+        obj.locationCode = 6275;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Hoogeveen")
+        obj.locationCode = 6279;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Groningen Airport Eelde")
+        obj.locationCode = 6280;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Twenthe Airport")
+        obj.locationCode = 6290;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Vlissingen")
+        obj.locationCode = 6310;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Westdorpe")
+        obj.locationCode = 6319;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Wilhelminadorp")
+        obj.locationCode = 6323;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Hoek van Holland")
+        obj.locationCode = 6330;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Rotterdam Airport")
+        obj.locationCode = 6344;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Cabauw")
+        obj.locationCode = 6348;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Gilze-Rijen Airport")
         obj.locationCode = 6350;
-        obj.locationName = "Gilze-Rijen";
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Herwijnen")
+        obj.locationCode = 6356;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Eindhoven Airport")
+        obj.locationCode = 6370;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Volkel")
+        obj.locationCode = 6375;
+        obj.locationName = location;
+      end
+
+      if strcmpi(location,"Maastricht Airport")
+        obj.locationCode = 6380;
+        obj.locationName = location;
       end
 
     end

@@ -4,6 +4,7 @@
 #
 # modifications 
 #		- 2024-06-10  JM   initial version
+#   - 28-jul-2026 JM   weatherstations added
 
 from datetime import datetime, timedelta, timezone
 from fileinput import filename
@@ -22,7 +23,7 @@ class OpenWBGT :
     #			- sets the API key
     #		  - set default start and stop dates
 	
-    def __init__ (self,location = "Gilze-Rijen") :
+    def __init__ (self,location = "Gilze-Rijen Airport") :
         	    
       # set the API key and the location
 
@@ -60,11 +61,95 @@ class OpenWBGT :
 	  #		sets the location for which the data should be retrieved	
 
     def setLocation(self, location) :
-     
-      if location.upper() == "GILZE-RIJEN" :
+
+      if location.upper() == "VOORSCHOTEN" :
+        self.locationCode = "06215"
+        self.locationName = location
+
+      if location.upper() == "DE KOOY AIRPORT" :
+        self.locationCode = "06235"
+        self.locationName = location
+
+      if location.upper() == "SCHIPHOL AIRPORT" :
+        self.locationCode = "063240"
+        self.locationName = location
+
+      if location.upper() == "HOORN TERSCELLING" :
+        self.locationCode = "06251"
+        self.locationName = location
+
+      if location.upper() == "DE BILT" :
+        self.locationCode = "06260"
+        self.locationName = location
+
+      if location.upper() == "LELYSTAD AIRPORT" :
+        self.locationCode = "06269"
+        self.locationName = location
+
+      if location.upper() == "LEEUWARDEN AIRPORT" :
+        self.locationCode = "06270"
+        self.locationName = location
+
+      if location.upper() == "DEELEN AIRPORT" :
+        self.locationCode = "06275"
+        self.locationName = location
+
+      if location.upper() == "HOOGEVEEN" :
+        self.locationCode = "06279"
+        self.locationName = location
+
+      if location.upper() == "GRONINGEN AIRPORT EELDE" :
+        self.locationCode = "06280"
+        self.locationName = location
+
+      if location.upper() == "TWENTHE AIRPORT" :
+        self.locationCode = "06290"
+        self.locationName = location
+
+      if location.upper() == "VLISSINGEN" :
+        self.locationCode = "06310"
+        self.locationName = location
+
+      if location.upper() == "WESTDORPE" :
+        self.locationCode = "06319"
+        self.locationName = location
+
+      if location.upper() == "WILHELMINADORP" :
+        self.locationCode = "06320"
+        self.locationName = location
+
+      if location.upper() == "HOEK VAN HOLLAND" :
+        self.locationCode = "06330"
+        self.locationName = location
+
+      if location.upper() == "ROTTERDAM AIRPORT" :
+        self.locationCode = "06344"
+        self.locationName = location
+
+      if location.upper() == "CABAUW" :
+        self.locationCode = "06348"
+        self.locationName = location
+
+      if location.upper() == "GILZE-RIJEN AIRPORT" :
         self.locationCode = "06350"
         self.locationName = location
 
+      if location.upper() == "HERWIJNEN" :
+        self.locationCode = "06356"
+        self.locationName = location
+
+      if location.upper() == "EINDHOVEN AIRPORT" :
+        self.locationCode = "06370"
+        self.locationName = location
+
+      if location.upper() == "VOLKEL" :
+        self.locationCode = "06375"
+        self.locationName = location
+         
+      if location.upper() == "MAASTRICHT AIRPORT" :
+        self.locationCode = "06380"
+        self.locationName = location
+   
     # readData
     #
     #		reads tthe data from the KNMI sites

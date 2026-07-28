@@ -13,7 +13,7 @@ function getWBGT
 
   addpath('matlab')
 
-  myWBGT = wbgt("Gilze-Rijen");
+  myWBGT = wbgt("Gilze-Rijen Airport");
   
   myWBGT = myWBGT.input();
   myWBGT = myWBGT.readData();
