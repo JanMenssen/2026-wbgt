@@ -4,7 +4,7 @@
 #
 # modifications 
 #		- 2024-06-10  JM   initial version
-#   - 28-jul-2026 JM   weatherstations added
+#   - 28-jul-2026 JM   weatherstations added, 2nd y-axis with hittekracht
 
 from datetime import datetime, timedelta, timezone
 from fileinput import filename
@@ -210,6 +210,16 @@ class OpenWBGT :
       ax.set_ylim(16, 34)
       ax.set_xlabel("Time", fontweight="bold")
       ax.set_ylabel("WBGT (°C)", fontweight="bold")
+      ax.set_yticks([16, 18, 20, 22, 24, 26, 28, 30, 32, 34])
+
+      # 2nd axis with "hittekracht"
+
+      ax_heatIndex = ax.twinx()
+      ax_heatIndex.set_ylim(16,34)
+      ax_heatIndex.set_ylabel("hittekracht",fontweight="bold")
+      ax_heatIndex.set_yticks([16, 18, 20, 22, 24, 26, 28, 30, 32])
+      ax_heatIndex.set_yticklabels(["2","3","4","5","6","7","8","9","10"])
+
       ax.set_title("WBGT at " + self.locationName + " (" + time[-1].strftime("%d-%b-%Y") +")",fontweight="bold")
 
 		  # box around plot
