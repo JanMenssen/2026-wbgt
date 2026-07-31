@@ -250,7 +250,7 @@ classdef wbgt < handle
       ax = gca;
       ax.YColor = [0 0 0];
 
-      ylabel('hittekracht',FontWeight='Bold',Color=[0 0 0]);
+      ylabel('heatindex',FontWeight='Bold',Color=[0 0 0]);
       yticks([16 18 20 22 24 26 28 30 32]);
       yticklabels({'2','3','4','5','6','7','8','9','10'})
 
