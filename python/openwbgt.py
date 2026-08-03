@@ -216,7 +216,7 @@ class OpenWBGT :
 
       ax_heatIndex = ax.twinx()
       ax_heatIndex.set_ylim(16,34)
-      ax_heatIndex.set_ylabel("hittekracht",fontweight="bold")
+      ax_heatIndex.set_ylabel("heatindex",fontweight="bold")
       ax_heatIndex.set_yticks([16, 18, 20, 22, 24, 26, 28, 30, 32])
       ax_heatIndex.set_yticklabels(["2","3","4","5","6","7","8","9","10"])
 
